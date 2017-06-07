@@ -1,0 +1,23 @@
+.ta-editor {
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 20px 0;
+}
+
+.ta-bind:focus {
+    outline: none;
+}
+
+.red{ color: blue; }
+
+.tei-address {
+    background-color: #5e7d00;
+}
+
+.tei-head {
+    font-size: 120%;
+    font-weight: 400;
+}

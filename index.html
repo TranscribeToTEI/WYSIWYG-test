@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="fr" ng-app="TdPApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="fr" ng-app="TdPApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="fr" ng-app="TdPApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="fr" ng-app="TdPApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test WYSIWYG</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="web/css/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="web/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="HTMLtoXML/HTMLtoXML.css" type="text/css" />
+    <link rel="stylesheet" href="XMLtoHTML/XMLtoHTML.css" type="text/css" />
+    <link rel="stylesheet" href="TextAngularFork/TextAngularFork.css" type="text/css" />
+    <link rel="stylesheet" href="XMLtoHTMLcode/XMLtoHTMLcode.css" type="text/css" />
+</head>
+
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="">
+        <nav class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand" id="home-logo">
+                    <h1 style="display: inline; margin-left: 20px;"><a href="#!/XMLtoHTML">Testaments de Poilus</a></h1></div>
+            </div>
+            <div class="collapse navbar-collapse">
+
+            </div>
+        </nav>
+    </header>
+    <section class="container-fluid" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="row">
+            <section class="col-sm-12" id="sectionContent">
+                <div ng-view></div>
+            </section>
+        </div>
+    </section>
+    <footer class="navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <a href="#!/XMLtoHTML" class="text-muted">#XMLtoHTML</a> - <a href="#!/HTMLtoXML" class="text-muted">#HTMLtoXML</a> - <a href="#!/TextAngularFork" class="text-muted">#TextAngularFork</a> - <a href="#!/XMLtoHTMLcode" class="text-muted">#XMLtoHTMLcode</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+    <script src="web/angular-libraries/ng-caret-aware/dist/dev.caretaware.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="web/angular-libraries/yaml-js/dist/yaml.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-sanitize.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.min.js'></script>
+
+    <script src='web/angular-libraries/rangy/lib/rangy-core.js'></script>
+    <script src='web/angular-libraries/rangy/lib/rangy-selectionsaverestore.js'></script>
+    <script src='web/angular-libraries/rangy/lib/rangy-classapplier.js'></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="XMLtoHTML/XMLtoHTML.js"></script>
+    <script type="text/javascript" src="HTMLtoXML/HTMLtoXML.js"></script>
+    <script type="text/javascript" src="TextAngularFork/TextAngularFork.js"></script>
+    <script type="text/javascript" src="XMLtoHTMLcode/XMLtoHTMLcode.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<h2>#XMLtoHTMLcode</h2>
+<strong>Test de WYSIWYG XML TEI</strong>
+
+<div class="row" id="XMLtoHTMLcodeContainer">
+    <div class="col-sm-6">
+        <div id="toolBar">
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group" role="group" data-ng-repeat="(group, type) in buttonsGroups">
+                    <div data-ng-if="type == 'dropdown'">
+                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="capitalize">{{ group }}</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li data-ng-repeat="button in buttons" data-ng-if="button.btn.btn_group == group">
+                                <a class="capitalize {{ button.btn.btn_class}}" data-ng-click="addTag(button.btn.id)" data-ng-if="button.type == 'tag'" title="{{ button.btn.title }}">{{ button.btn.label }}</a>
+                                <a class="capitalize {{ button.btn.btn_class}}" data-ng-click="addAttribute(button.btn.id)" data-ng-if="button.type == 'attribute'" title="{{ button.btn.title }}">{{ button.btn.label }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-ng-if="type == 'group'">
+                        <div class="btn-group btn-group-sm" data-ng-repeat="button in buttons" data-ng-if="button.btn.btn_group == group">
+                            <a class="btn btn-sm btn-default capitalize {{ button.btn.btn_class}}" data-ng-click="addTag(button.btn.id)" data-ng-if="button.type == 'tag'" title="{{ button.btn.title }}">
+                                <span data-ng-if="button.btn.icon != ''"><i class="{{ button.btn.icon }}"></i></span>
+                                <span data-ng-if="button.btn.icon == ''">{{ button.btn.label }}</span>
+                            </a>
+                            <a class="btn btn-sm btn-default capitalize {{ button.btn.btn_class}}" data-ng-click="addAttribute(button.btn.id)" data-ng-if="button.type == 'attribute'" title="{{ button.btn.title }}">
+                                <span data-ng-if="button.btn.icon != ''"><i class="{{ button.btn.icon }}"></i></span></span>
+                                <span data-ng-if="button.btn.icon == ''">{{ button.btn.label }}</span>
+                            </a>
+                            <a class="btn btn-sm btn-default capitalize {{ button.btn.btn_class}}" data-ng-click="replace()" data-ng-if="button.type == 'replace'" title="{{ button.btn.title }}">
+                                <span data-ng-if="button.btn.icon != ''"><i class="{{ button.btn.icon }}"></i></span></span>
+                                <span data-ng-if="button.btn.icon == ''">{{ button.btn.label }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-sm btn-default capitalize" data-ng-click="addTag('test')">test</a>
+            </div>
+        </div>
+        <div contenteditable="true" id="inputArea" data-ng-model="inputArea" style="display:inline-block;"></div>
+        <br />
+        <label for="xmlTextarea">Rendu XML de la transcription</label>
+        <textarea id="xmlTextarea" data-ng-model="xmlTextarea" class="form-control" title="Rendu XML de la transcription" disabled></textarea>
+        <br />
+        <label for="liveRender">Rendu HTML de la transcription</label>
+        <div id="liveRender" data-ng-bind-html="liveRender" title="Rendu HTML de la transcription"></div>
+    </div>
+    <div class="col-sm-6">
+        <img class="img-responsive" src="./web/images/FRAN_0045_00457_ptt.jpg" />
+    </div>
+</div>

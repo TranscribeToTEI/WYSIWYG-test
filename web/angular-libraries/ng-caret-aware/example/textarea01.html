@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular caret aware elements - TextArea example 01</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+    <script src="../dist/dev.caretaware.min.js"></script>
+</head>
+<body data-ng-app="app" data-ng-controller="AppController">
+
+  <button data-ng-click="insStringAt('b', 2)">Insert "b" at 2</button>
+  <hr/>
+
+  <label for="area"><strong>Text area</strong></label><br/>
+  <textarea name="textarea" id="area" cols="30" rows="10" data-caret-aware="cursor">a
+
+  z</textarea>
+  <hr/>
+
+  <label for="position"><strong>Position</strong></label><br/>
+  <input type="number" id="position" data-ng-model="position"/>
+  <button data-ng-click="incPosition()"><b>+</b></button>
+  <button data-ng-click="decPosition()"><b>&ndash;</b></button>
+  <button data-ng-click="printSelection()"><b>print selection</b></button>
+  <hr/>
+  <pre id="selection"></pre>
+
+  <script type="text/javascript">
+    var app = angular.module('app', ['leodido.caretAware']);
+    app.controller('AppController', function($scope/*, $timeout*/) {
+      var textarea = angular.element(document.querySelector('#area'));
+
+      $scope.insStringAt = function (str, pos) {
+        var caretController = textarea.controller('caretAware');
+        var text = textarea.val();
+        caretController.setPosition(pos);
+        pos = caretController.getPosition();
+        textarea.val(text.substring(0, pos) + str + text.substring(pos));
+      };
+
+//      // Exec when DOM has finished rendering
+//      $timeout(function() {
+//        var caretController = textarea.controller('caretAware');
+//        var text = textarea.val();
+//        caretController.setPosition(2);
+//        var pos = caretController.getPosition();
+//        textarea.val(text.substring(0, pos) + 'b' + text.substring(pos));
+//      });
+
+      $scope.$watch('cursor', function(cursor) {
+        var caretController = textarea.controller('caretAware');
+        console.log('Position of caret named "cursor" (input element) changed', cursor, caretController.getPosition());
+        $scope.position = cursor;
+      });
+      $scope.$watch('position', function(position) {
+        console.log('position > ', position);
+        $scope.cursor = position;
+      });
+
+      $scope.decPosition = function() {
+        var caretAwareCtrl = textarea.controller('caretAware');
+        caretAwareCtrl.setPosition(caretAwareCtrl.getPosition() - 1);
+      };
+
+      $scope.incPosition = function() {
+        var caretAwareCtrl = textarea.controller('caretAware');
+        caretAwareCtrl.setPosition(caretAwareCtrl.getPosition() + 1);
+      };
+
+      $scope.printSelection = function() {
+        var caretAwareCtrl = textarea.controller('caretAware');
+        var selection = caretAwareCtrl.getSelection();
+        var preEl = angular.element(document.querySelector('#selection'));
+        preEl.text(JSON.stringify(selection));
+      };
+    });
+  </script>
+
+</body>
+</html>

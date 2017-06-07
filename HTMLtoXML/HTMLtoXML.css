@@ -1,0 +1,42 @@
+#HTMLtoXMLcontainer #liveRender {
+    padding: 10px;
+    width: 100%;
+    min-height: 50px;
+
+    border: solid 1px #ccc;
+
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+
+}
+
+#HTMLtoXMLcontainer #liveRender:focus {
+    outline: none;
+    border-color: #ccc;
+    box-shadow: 0 0;
+}
+
+#HTMLtoXMLcontainer #toolBar {
+    border: solid 1px #CCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #eee;
+    padding: 2px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.sup {
+    top: -0.5em;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}

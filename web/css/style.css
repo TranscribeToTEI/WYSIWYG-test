@@ -1,0 +1,74 @@
+h1 {
+    font-size: 1.2em;
+    margin:0px;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    color: #fff;
+}
+
+h1 > a, h1 > a:hover, h1 > a:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.row-title {
+    background: #222;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+h2 {
+    display: block;
+    color: #222;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+h2 > a, h2 > a:hover, h2 > a:focus {
+    color: #eee;
+    text-decoration: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #CCC;
+    height: 40px;
+    padding-top: 10px;
+}
+
+footer .text-muted:hover, footer .text-muted:focus, footer .text-muted {
+    color: #CCC;
+}
+
+.affiche, .illustration {
+    max-width: 250px;
+    height: 350px;
+    cursor: pointer;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+.affiche-little, .illustration-little {
+    max-width: 200px;
+    max-height: 300px;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 5px;
+
+}
+
+.a-header, .a-header:hover, .a-header:focus {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a-header-muted, .a-header-muted:hover, .a-header-muted:focus {
+    color: #EEE;
+    text-decoration: none;
+}

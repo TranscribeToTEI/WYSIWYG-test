@@ -1,0 +1,18 @@
+<h2>#TextAngularFork</h2>
+<strong>Test de WYSIWYG XML TEI</strong>
+
+<div class="row" id="TextAngularForkLcontainer">
+    <div class="col-sm-6">
+        <div text-angular
+             data-ng-model="htmlVariable"
+             data-ta-toolbar="[['p-tei','ul','head','signed','dateline','postscript'],['underline','superscript','justifyLeft','justifyCenter','justifyRight','subst','add','strikeThrough','foreign'],['address','person'],['undo','redo','clear','html']]"
+             data-ta-toolbar-button-active-class="active"
+             data-ta-default-wrap="div"
+        ></div>
+        <br />
+        <textarea id="xmlTextarea" data-ng-model="xmlTextarea" class="form-control" title="Rendu XML de la transcription" disabled></textarea>
+    </div>
+    <div class="col-sm-6">
+        <img class="img-responsive" src="./web/images/FRAN_0045_00457_ptt.jpg" />
+    </div>
+</div>
