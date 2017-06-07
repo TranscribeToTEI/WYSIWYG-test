@@ -1,4 +1,4 @@
-var app = angular.module("TdPApp", ["ngRoute", "leodido.caretAware", "textAngular"]);
+var app = angular.module("TdPApp", ["ngRoute", "leodido.caretAware", "textAngular", "ui.ace"]);
 app.config(function($routeProvider) {
     $routeProvider
         .when("/XMLtoHTML", {
