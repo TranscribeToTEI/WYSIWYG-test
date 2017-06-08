@@ -7,6 +7,8 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
     var config = YAML.load('XMLtoHTMLace/config.yml');
     $scope.buttons = config.tei; console.log($scope.buttons);
     $scope.buttonsGroups = config.buttonsGroups; console.log($scope.buttonsGroups);
+    $scope.isUndo = false;
+    $scope.isRedo = false;
 
     console.log($scope.inputArea);
 
@@ -22,6 +24,7 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
             }
         });
 
+        $scope.aceUndoManager = $scope.aceSession.setUndoManager(new ace.UndoManager());
         $scope.aceEditor.focus();
     };
 
@@ -46,10 +49,8 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
         var attribute = config.tei[attributeName],
             attrInsert = "";
 
-        if($scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()) !== "") {
-            attrInsert = "<hi " + attribute.xml.name + "=\"" + attribute.xml.value + "\">" + $scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()) + "</hi>";
-            $scope.aceEditor.insert(attrInsert);
-        }
+        attrInsert = "<hi " + attribute.xml.name + "=\"" + attribute.xml.value + "\">" + $scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()) + "</hi>";
+        $scope.aceEditor.insert(attrInsert);
         $scope.aceEditor.focus();
     };
 
@@ -57,16 +58,6 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
      * This function watches #liveRender, encodes it and displays it on #xmlTextarea
      */
     $scope.$watch('inputArea', function(inputArea) {
-        //console.log(inputArea);
-        //console.log($.parseHTML($scope.inputArea));
-        //console.log($scope.aceEditor.selection.getCursor());
-
-        /*$scope.aceSession.selection.on('changeSelection', function(e) {
-            //console.log($scope.aceSession.selection);
-            console.log($scope.aceSession.getTextRange());
-            console.log($scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()));
-        });*/
-
         var encodeLiveRender = $scope.inputArea;
         for(var buttonId in config.tei) {
             encodeLiveRender = encodeHTML(encodeLiveRender, config.tei[buttonId]);
@@ -114,6 +105,10 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
         return encodeLiveRender;
     }
 
+    /**
+     * Modal management
+     * @param id_modal
+     */
     $scope.modal = function(id_modal) {
         $('#choice-modal, #choice-abbr-modal, #choice-orig-modal, #choice-sic-modal').modal('hide');
         // Reset variables :
@@ -128,6 +123,10 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
         $("body").removeClass();
     };
 
+    /**
+     * Modal validation
+     * @param id_validation
+     */
     $scope.validModal = function(id_validation) {
         $('#choice-modal, #choice-abbr-modal, #choice-orig-modal, #choice-sic-modal').modal('hide');
         if(id_validation === "choice-orig-modal") {
@@ -143,5 +142,17 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
             $scope.aceEditor.insert(insertXML);
         }
         $scope.aceEditor.focus();
-    }
+    };
+
+    /**
+     * Undo management
+     * @param direction
+     */
+    $scope.undo = function(direction) {
+        if(direction === "prev") {
+            $scope.aceEditor.undo();
+        } else if(direction === "next" === true) {
+            $scope.aceEditor.redo();
+        }
+    };
 });
