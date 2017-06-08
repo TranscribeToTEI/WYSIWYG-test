@@ -29,14 +29,13 @@
                                 <span data-ng-if="button.btn.icon != ''"><i class="{{ button.btn.icon }}"></i></span></span>
                                 <span data-ng-if="button.btn.icon == ''">{{ button.btn.label }}</span>
                             </a>
-                            <a class="btn btn-sm btn-default capitalize {{ button.btn.btn_class}}" data-ng-click="replace()" data-ng-if="button.type == 'replace'" title="{{ button.btn.title }}">
+                            <a class="btn btn-sm btn-default capitalize {{ button.btn.btn_class}}" data-ng-click="modal(button.modal.id)" data-ng-if="button.type == 'choice'" title="{{ button.btn.title }}">
                                 <span data-ng-if="button.btn.icon != ''"><i class="{{ button.btn.icon }}"></i></span></span>
                                 <span data-ng-if="button.btn.icon == ''">{{ button.btn.label }}</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-sm btn-default capitalize" data-ng-click="test()">test</a>
             </div>
         </div>
         <div ui-ace="{

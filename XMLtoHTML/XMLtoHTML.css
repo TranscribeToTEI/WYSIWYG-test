@@ -26,15 +26,15 @@
     border-radius: 0 0 5px 5px;
 }
 
-#transcript {
+#XMLtoHTMLcontainer #transcript {
     /* These properties care for modal management */
     overflow: hidden;
     position:relative;
 }
-.modal, .modal-backdrop {
+#XMLtoHTMLcontainer .modal, .modal-backdrop {
     position: absolute !important;
 }
-.modal-footer {
+#XMLtoHTMLcontainer .modal-footer {
     padding: 5px;
 }
 

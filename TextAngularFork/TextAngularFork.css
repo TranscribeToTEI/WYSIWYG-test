@@ -1,4 +1,4 @@
-.ta-editor {
+#TextAngularForkLcontainer .ta-editor {
     min-height: 300px;
     height: auto;
     overflow: auto;
@@ -7,17 +7,17 @@
     margin: 20px 0;
 }
 
-.ta-bind:focus {
+#TextAngularForkLcontainer .ta-bind:focus {
     outline: none;
 }
 
-.red{ color: blue; }
+#TextAngularForkLcontainer .red{ color: blue; }
 
-.tei-address {
+#TextAngularForkLcontainer .tei-address {
     background-color: #5e7d00;
 }
 
-.tei-head {
+#TextAngularForkLcontainer .tei-head {
     font-size: 120%;
     font-weight: 400;
 }

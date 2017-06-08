@@ -17,8 +17,12 @@ app.config(function($routeProvider) {
             templateUrl : "XMLtoHTMLace/XMLtoHTMLace.html",
             controller : "XMLtoHTMLaceCtrl"
         })
+        .when("/", {
+            templateUrl : "Home/Home.html",
+            controller : "HomeCtrl"
+        })
         .otherwise({
-            templateUrl : "XMLtoHTML/XMLtoHTML.html",
-            controller : "XMLtoHTMLCtrl"
+            templateUrl : "Home/Home.html",
+            controller : "HomeCtrl"
         });
 });

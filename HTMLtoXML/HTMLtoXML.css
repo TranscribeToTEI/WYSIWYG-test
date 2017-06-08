@@ -25,15 +25,15 @@
     padding: 2px;
 }
 
-.capitalize {
+#HTMLtoXMLcontainer .capitalize {
     text-transform: capitalize;
 }
 
-.underlined {
+#HTMLtoXMLcontainer .underlined {
     text-decoration: underline;
 }
 
-.sup {
+#HTMLtoXMLcontainer .sup {
     top: -0.5em;
     font-size: 75%;
     line-height: 0;
