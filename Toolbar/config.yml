@@ -1,0 +1,380 @@
+buttonsGroups:
+    structure: "dropdown"
+    choice: "group"
+    semantic: "group"
+    text: "group"
+tei:
+    br:
+        type: "key"
+        caret:
+            position: "after"
+        html:
+            name: "br"
+            unique: "true"
+        xml:
+            name: "lb"
+            unique: "true"
+    paragraph:
+        type: "tag"
+        btn :
+            id: "paragraph"
+            label: "paragraphe"
+            title: "Ajouter un paragraphe"
+            icon: ""
+            btn_class: ""
+            btn_group: "structure"
+        caret:
+            position: "prepend"
+        html:
+            name: "p"
+            unique: "false"
+            value: "paragraphe"
+        xml:
+            name: "p"
+            unique: "false"
+    list:
+        type: "tag"
+        btn :
+            id: "list"
+            label: "liste"
+            title: "Ajouter une liste"
+            icon: ""
+            btn_class: ""
+            btn_group: "structure"
+        caret:
+            position: "prepend"
+        html:
+            name: "ul"
+            unique: "false"
+            value: ""
+            sub:
+                item: "tag"
+        xml:
+            name: "list"
+            unique: "false"
+            sub:
+                item: "tag"
+    item:
+        type: "tag"
+        caret:
+            position: "prepend"
+        html:
+            name: "li"
+            unique: "false"
+        xml:
+            name: "item"
+            unique: "false"
+    letterhead:
+        type: "tag"
+        btn :
+            id: "letterhead"
+            label: "en-tête"
+            title: "Ajouter un en-tête"
+            icon: ""
+            btn_class: ""
+            btn_group: "structure"
+        caret:
+            position: "prepend"
+        html:
+            name: "div"
+            unique: "false"
+            value: "header"
+            attributes:
+                class: "tei-header"
+                style: "text-decoration: underline;"
+        xml:
+            name: "head"
+            unique: "false"
+    signature-line:
+        type: "tag"
+        btn :
+            id: "signature-line"
+            label: "Ligne de signature"
+            title: "Ajouter une ligne de signature"
+            icon: ""
+            btn_class: ""
+            btn_group: "structure"
+        caret:
+            position: "prepend"
+        html:
+            name: "signed"
+            unique: "false"
+            value: "signature"
+        xml:
+            name: "signed"
+            unique: "false"
+    date-line:
+        type: "tag"
+        btn :
+            id: "date-line"
+            label: "Ligne de date"
+            title: "Ajouter une ligne de date"
+            icon: ""
+            btn_class: ""
+            btn_group: "structure"
+        caret:
+            position: "prepend"
+        html:
+            name: "dateline"
+            unique: "false"
+            value: "ligne de date"
+        xml:
+            name: "dateline"
+            unique: "false"
+    postscript:
+        type: "tag"
+        btn :
+            id: "postscript"
+            label: "post-scriptum"
+            title: "Ajouter un post-scriptum"
+            icon: ""
+            btn_class: ""
+            btn_group: "structure"
+        caret:
+            position: "prepend"
+        html:
+            name: "postscript"
+            unique: "false"
+            value: "post-scriptum"
+        xml:
+            name: "postscript"
+            unique: "false"
+    choice:
+        type: "choice"
+        modal:
+            id: "choice-modal"
+        btn :
+            id: "choice"
+            label: "Remplacement"
+            title: "Remplacer du texte"
+            icon: "fa fa-refresh"
+            btn_class: ""
+            btn_group: "choice"
+        caret:
+            position: "after"
+        html:
+            name: "div"
+            unique: "false"
+            attributes:
+                class: "replacement-tag"
+        xml:
+            name: "occur"
+            unique: "false"
+    address:
+        type: "tag"
+        btn :
+            id: "address"
+            label: "Adresse"
+            title: "Ajouter une adresse"
+            icon: ""
+            btn_class: ""
+            btn_group: "semantic"
+        caret:
+            position: "prepend"
+        html:
+            name: "div"
+            unique: "false"
+            attributes:
+                class: "address-tag"
+        xml:
+            name: "address"
+            unique: "false"
+    person:
+        type: "tag"
+        btn :
+            id: "person"
+            label: "Personne"
+            title: "Ajouter un nom de personne"
+            icon: "fa fa-user"
+            btn_class: ""
+            btn_group: "semantic"
+        caret:
+            position: "prepend"
+        html:
+            name: "div"
+            unique: "false"
+            attributes:
+                class: "person-tag"
+        xml:
+            name: "personName"
+            unique: "false"
+    underlined:
+        type: "attribute"
+        btn :
+            id: "underlined"
+            label: "Souligné"
+            title: "Marquer le texte comme souligné"
+            icon: "fa fa-underline"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "class"
+            value: "underlined"
+            type: "inline"
+            combinable: "true"
+        xml:
+            name: "rend"
+            value: "underlined"
+            type: "inline"
+            combinable: "true"
+    super:
+        type: "attribute"
+        btn :
+            id: "super"
+            label: "Exposant"
+            title: "Marquer le texte comme exposant"
+            icon: "fa fa-superscript"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "class"
+            value: "sup"
+            type: "inline"
+            combinable: "true"
+        xml:
+            name: "rend"
+            value: "sup"
+            type: "inline"
+            combinable: "true"
+    align_left:
+        type: "attribute"
+        btn :
+            id: "align_left"
+            label: "Alignement gauche"
+            title: "Marquer le texte comme aligné à gauche"
+            icon: "fa fa-align-left"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "class"
+            value: "text-left"
+            type: "block"
+            combinable: "true"
+        xml:
+            name: "rend"
+            value: "left"
+            type: "block"
+            combinable: "true"
+    align_center:
+        type: "attribute"
+        btn :
+            id: "align_center"
+            label: "Alignement au centre"
+            title: "Marquer le texte comme aligné au centre"
+            icon: "fa fa-align-center"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "class"
+            value: "text-center"
+            type: "block"
+            combinable: "true"
+        xml:
+            name: "rend"
+            value: "center"
+            type: "block"
+            combinable: "true"
+    align_right:
+        type: "attribute"
+        btn :
+            id: "align_right"
+            label: "Alignement droite"
+            title: "Marquer le texte comme aligné à droite"
+            icon: "fa fa-align-right"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "class"
+            value: "text-right"
+            type: "block"
+            combinable: "true"
+        xml:
+            name: "rend"
+            value: "right"
+            type: "block"
+            combinable: "true"
+    exchange:
+        type: "tag"
+        btn :
+            id: "exchange"
+            label: "Remplacement de texte"
+            title: "Marquer le texte comme remplacé"
+            icon: "fa fa-exchange"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "div"
+            unique: "false"
+            attributes:
+                class: "exchange-tag"
+        xml:
+            name: "exchange"
+            unique: "false"
+    add:
+        type: "tag"
+        btn :
+            id: "add"
+            label: "Ajout de texte"
+            title: "Marquer le texte comme ajouté"
+            icon: "fa fa-plus"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "div"
+            unique: "false"
+            attributes:
+                class: "add-tag"
+        xml:
+            name: "add"
+            unique: "false"
+    del:
+        type: "tag"
+        btn :
+            id: "del"
+            label: "Suppression de texte"
+            title: "Marquer le texte comme supprimé"
+            icon: "fa fa-strikethrough"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "del"
+            unique: "false"
+        xml:
+            name: "del"
+            unique: "false"
+    foreign:
+        type: "tag"
+        btn :
+            id: "foreign"
+            label: "Texte en langue étrangère"
+            title: "Marquer le texte comme étant en langue étrangère"
+            icon: "fa fa-globe"
+            btn_class: ""
+            btn_group: "text"
+        caret:
+            position: "prepend"
+        html:
+            name: "div"
+            unique: "false"
+            attributes:
+                class: "foreign-tag"
+        xml:
+            name: "foreign"
+            unique: "false"
+

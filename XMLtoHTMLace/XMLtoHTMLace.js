@@ -21,6 +21,8 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
                 editor.insert("<lb />\n");
             }
         });
+
+        $scope.aceEditor.focus();
     };
 
     $scope.addTag = function(tagName) {
@@ -34,6 +36,7 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
         }
 
         $scope.aceEditor.insert(tagInsert);
+        $scope.aceEditor.focus();
     };
 
     /**
@@ -47,21 +50,22 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
             attrInsert = "<hi " + attribute.xml.name + "=\"" + attribute.xml.value + "\">" + $scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()) + "</hi>";
             $scope.aceEditor.insert(attrInsert);
         }
+        $scope.aceEditor.focus();
     };
 
     /**
      * This function watches #liveRender, encodes it and displays it on #xmlTextarea
      */
     $scope.$watch('inputArea', function(inputArea) {
-        console.log(inputArea);
+        //console.log(inputArea);
         //console.log($.parseHTML($scope.inputArea));
         //console.log($scope.aceEditor.selection.getCursor());
 
-        $scope.aceSession.selection.on('changeSelection', function(e) {
+        /*$scope.aceSession.selection.on('changeSelection', function(e) {
             //console.log($scope.aceSession.selection);
             console.log($scope.aceSession.getTextRange());
             console.log($scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()));
-        });
+        });*/
 
         var encodeLiveRender = $scope.inputArea;
         for(var buttonId in config.tei) {
@@ -108,5 +112,36 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
         }
 
         return encodeLiveRender;
+    }
+
+    $scope.modal = function(id_modal) {
+        $('#choice-modal, #choice-abbr-modal, #choice-orig-modal, #choice-sic-modal').modal('hide');
+        // Reset variables :
+        $scope.choice_orig_modal_reg = ""; $scope.choice_orig_modal_orig = "";
+
+        if(id_modal === "choice-orig-modal") {
+            $scope.choice_orig_modal_orig = $scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange());
+        }
+
+        $("#"+id_modal).modal('show');
+        $(".modal-backdrop").appendTo("#transcript");
+        $("body").removeClass();
+    };
+
+    $scope.validModal = function(id_validation) {
+        $('#choice-modal, #choice-abbr-modal, #choice-orig-modal, #choice-sic-modal').modal('hide');
+        if(id_validation === "choice-orig-modal") {
+            var orig_insertHTML = "",
+                reg_insertHTML = "";
+
+            if($scope.choice_orig_modal_orig !== "") {orig_insertHTML = "<orig>"+$scope.choice_orig_modal_orig+"</orig>";}
+            else {orig_insertHTML = "<orig />";}
+            if($scope.choice_orig_modal_reg !== "") {reg_insertHTML = "<reg>"+$scope.choice_orig_modal_reg+"</reg>";}
+            else {reg_insertHTML = "<reg />";}
+
+            var insertXML = "<choice>"+orig_insertHTML+reg_insertHTML+"</choice>";
+            $scope.aceEditor.insert(insertXML);
+        }
+        $scope.aceEditor.focus();
     }
 });

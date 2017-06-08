@@ -21,6 +21,10 @@ app.config(function($routeProvider) {
             templateUrl : "Home/Home.html",
             controller : "HomeCtrl"
         })
+        .when("/toolbar", {
+            templateUrl : "Toolbar/Toolbar.html",
+            controller : "ToolbarCtrl"
+        })
         .otherwise({
             templateUrl : "Home/Home.html",
             controller : "HomeCtrl"

@@ -1,8 +1,10 @@
 <h2>#TextAngularFork</h2>
 <strong>Test de WYSIWYG XML TEI</strong>
+<hr />
 
 <div class="row" id="TextAngularForkLcontainer">
     <div class="col-sm-6">
+        <label>Transcription en HTML</label>
         <div text-angular
              data-ng-model="htmlVariable"
              data-ta-toolbar="[['p-tei','ul','head','signed','dateline','postscript'],['underline','superscript','justifyLeft','justifyCenter','justifyRight','subst','add','strikeThrough','foreign'],['address','person'],['undo','redo','clear','html']]"
@@ -10,6 +12,7 @@
              data-ta-default-wrap="div"
         ></div>
         <br />
+        <label for="xmlTextarea">Rendu en XML</label>
         <textarea id="xmlTextarea" data-ng-model="xmlTextarea" class="form-control" title="Rendu XML de la transcription" disabled></textarea>
     </div>
     <div class="col-sm-6">

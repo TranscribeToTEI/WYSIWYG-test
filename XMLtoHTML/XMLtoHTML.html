@@ -1,8 +1,9 @@
 <h2>#XMLtoHTML</h2>
 <strong>Test de WYSIWYG XML TEI</strong>
-
+<hr />
 <div class="row" id="XMLtoHTMLcontainer">
     <div class="col-sm-6">
+        <label for="xmlTextarea">Transcription en XML</label>
         <div id="transcript">
             <div id="toolBar">
                 <div class="btn-toolbar" role="toolbar">
@@ -132,6 +133,8 @@
             </div>
             <!-- /.modal -->
         </div>
+        <br />
+        <label for="liveRender">Rendu en HTML</label>
         <div id="liveRender" data-ng-bind-html="liveRender" data-ng-click="positionCaret()"></div>
 
         <label for="position"><strong>Position</strong></label><br/>

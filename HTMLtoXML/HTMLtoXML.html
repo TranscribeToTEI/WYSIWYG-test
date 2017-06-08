@@ -1,8 +1,9 @@
 <h2>#HTMLtoXML</h2>
 <strong>Test de WYSIWYG XML TEI</strong>
-
+<hr />
 <div class="row" id="HTMLtoXMLcontainer">
     <div class="col-sm-6">
+        <label for="liveRender">Transcription en HTML</label>
         <div id="toolBar">
             <div class="btn-toolbar" role="toolbar">
                 <div class="btn-group" role="group" data-ng-repeat="(group, type) in buttonsGroups">
@@ -39,7 +40,8 @@
             </div>
         </div>
         <div contenteditable="true" id="liveRender" data-ng-model="liveRender" style="display:inline-block;"></div>
-        <br /><br />
+        <br />
+        <label for="xmlTextarea">Rendu en XML</label>
         <textarea id="xmlTextarea" data-ng-model="xmlTextarea" class="form-control" title="Rendu XML de la transcription" disabled></textarea>
     </div>
     <div class="col-sm-6">

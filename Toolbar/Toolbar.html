@@ -1,0 +1,71 @@
+<h2>#Toolbar</h2>
+
+<div class="row">
+    <div class="col-xs-12 jumbotron">
+        <p>Ici, un exemple de l'ensemble de la toolbar. Les boutons ne sont pas actifs</p>
+    </div>
+</div>
+
+<div class="row" id="ToolbarContainer">
+    <div class="col-sm-6">
+        <label for="toolbarTextarea">Toolbar :</label>
+        <div id="toolBar" class="btn-toolbar" role="toolbar">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Structure
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a data-ng-click="addStructure('paragraph')" title="Ajouter un paragraphe">Paragraphe</a></li>
+                    <li><a data-ng-click="addStructure('list')" title="Ajouter une liste">Liste</a></li>
+                    <li><a data-ng-click="addStructure('letterhead')" title="Ajouter un en-tête">En-tête</a></li>
+                    <li><a data-ng-click="addStructure('signature-line')" title="Ajouter une ligne de signature">Ligne de signature</a></li>
+                    <li><a data-ng-click="addStructure('dateline')" title="Ajouter une ligne de date">Ligne de date</a></li>
+                    <li><a data-ng-click="addStructure('postscript')" title="Ajouter un post-scriptum">Post-scriptum</a></li>
+                </ul>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="actionReplace()" title="Remplacer du texte"><i class="fa fa-refresh"></i></a>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('address')" title="Ajouter une adresse">Adresse</a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('person')" title="Ajouter un nom de personne"><i class="fa fa-user"></i></a>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="addAttribute('underlined')" title="Souligner le texte"><i class="fa fa-underline"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addAttribute('super')" title="Mettre le texte en exposant"><i class="fa fa-superscript"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addAttribute('align-left')" title="Aligner le texte à gauche"><i class="fa fa-align-left"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addAttribute('align-center')" title="Aligner le texte au centre"><i class="fa fa-align-center"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addAttribute('align-right')" title="Aligner le texte à droite"><i class="fa fa-align-right"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('replace')" title="Marquer un remplacement"><i class="fa fa-exchange"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('add')" title="Marquer un ajout"><i class="fa fa-plus"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('delete')" title="Marquer le texte comme rayé"><i class="fa fa-strikethrough"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('foreign-language')" title="Texte en langue étrangère"><i class="fa fa-globe"></i></a>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('blank-line')" title="Ajouter un espacement vertical"><i class="fa fa-ellipsis-v"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('hr')" title="Ajouter une ligne horizontale"><i class="fa fa-minus"></i></a>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('damage')" title="Le support est endommagé"><i class="fa fa-circle"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('supplied')" title="Il est probablement écrit ceci"><i class="fa fa-circle-o"></i></a>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="addFootnote('footnote')" title="Ajouter une note de bas de page"><i class="fa fa-commenting-o"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('reference')" title="Ajouter une référence"><i class="fa fa-comment"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('app')" title="Ajouter une note d'apparat critique"><i class="fa fa-comment-o"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="addTag('comment')" title="Ajouter un commentaire"><i class="fa fa-commenting"></i></a>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <a class="btn btn-sm btn-default" data-ng-click="wysiwygEvent('undo')" title="Revenir en arrière"><i class="fa fa-undo"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="wysiwygEvent('repeat')" title="Répéter l'action"><i class="fa fa-repeat"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="wysiwygEvent('code')" title="Afficher le code"><i class="fa fa-code"></i></a>
+                <a class="btn btn-sm btn-default" data-ng-click="wysiwygEvent('help')" title="Afficher l'aide"><i class="fa fa-info"></i></a>
+            </div>
+        </div>
+        <textarea class="form-control" id="toolbarTextarea"></textarea>
+    </div>
+    <div class="col-sm-6">
+        <img class="img-responsive" src="./web/images/FRAN_0045_00457_ptt.jpg" />
+    </div>
+</div>
