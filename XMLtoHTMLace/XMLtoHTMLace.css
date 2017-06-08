@@ -1,14 +1,13 @@
 #XMLtoHTMLcodeContainer #inputArea {
     padding: 10px;
-    width: 100%;
     min-height: 400px;
 
     border: solid 1px #ccc;
     border-top: none;
 
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 0 5px;
+    -moz-border-radius: 0 0 0 5px;
+    border-radius: 0 0 0 5px;
 
 }
 
@@ -18,12 +17,18 @@
     box-shadow: 0 0;
 }
 
-#XMLtoHTMLcodeContainer #inputArea .p {
-    display: block;
-    margin: 3px;
+#XMLtoHTMLcodeContainer #ace-container {
+    padding-right: 0;
+}
+
+#XMLtoHTMLcodeContainer #div-interaction {
+    min-height: 400px;
     background-color: #eee;
-    border-top: solid 1px #ccc;
+    padding-left: 0;
+
+    border-right: solid 1px #ccc;
     border-bottom: solid 1px #ccc;
+    border-bottom-right-radius: 5px;
 }
 
 #XMLtoHTMLcodeContainer #toolBar {

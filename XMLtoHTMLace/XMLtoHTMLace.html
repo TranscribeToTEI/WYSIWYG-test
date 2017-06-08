@@ -2,7 +2,7 @@
 <strong>Test de WYSIWYG XML TEI</strong>
 <hr />
 <div class="row" id="XMLtoHTMLcodeContainer">
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <div id="transcript">
             <label for="inputArea">Ace editor :</label>
             <div id="toolBar">
@@ -40,15 +40,23 @@
                     <div class="btn-group" role="group">
                         <a data-ng-click="undo('prev')" class="btn btn-sm btn-default" title="Révenir à l'état précédant"><i class="fa fa-undo"></i></a>
                         <a data-ng-click="undo('next')" class="btn btn-sm btn-default" title="Révenir à l'état précédant"><i class="fa fa-repeat"></i></a>
+                        <a data-ng-click="help()" class="btn btn-sm btn-default" title="Obtenir des informations sur l'interface"><i class="fa fa-question-circle"></i></a>
                     </div>
                 </div>
             </div>
-            <div ui-ace="{
-                  mode: 'xml',
-                  onLoad: aceLoaded,
-                  onChange: aceChanged,
-                  useWrapMode: true
-                }" id="inputArea" data-ng-model="inputArea"></div>
+            <div class="row">
+                <div id="ace-container" class="col-xs-9">
+                    <div ui-ace="{
+                    mode: 'xml',
+                    onLoad: aceLoaded,
+                    onChange: aceChanged,
+                    useWrapMode: true
+                    }" id="inputArea" data-ng-model="inputArea"></div>
+                </div>
+                <div id="div-interaction" class="col-xs-3">
+                    <div data-ng-include="interactionFile"></div>
+                </div>
+            </div>
             <!-- Modal -->
             <div class="modal fade" id="choice-modal" tabindex="-1" role="dialog" aria-labelledby="choice-modal" aria-hidden="true">
                 <div class="modal-dialog">
@@ -144,7 +152,7 @@
         <label for="xmlTextarea">Rendu XML de la transcription</label>
         <textarea id="xmlTextarea" data-ng-model="xmlTextarea" class="form-control" title="Rendu XML de la transcription" disabled></textarea>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <img class="img-responsive" src="./web/images/FRAN_0045_00457_ptt.jpg" />
     </div>
 </div>

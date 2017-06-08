@@ -9,6 +9,7 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
     $scope.buttonsGroups = config.buttonsGroups; console.log($scope.buttonsGroups);
     $scope.isUndo = false;
     $scope.isRedo = false;
+    $scope.interactionFile = "";
 
     console.log($scope.inputArea);
 
@@ -30,15 +31,24 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
 
     $scope.addTag = function(tagName) {
         var tag = config.tei[tagName],
-            tagInsert = "";
+            tagInsert = "",
+            defaultAddChar = 2;
 
         if(tag.xml.unique === "true") {
             tagInsert = "<"+tag.xml.name+" />";
+            defaultAddChar = 4;
         } else if(tag.xml.unique === "false") {
             tagInsert = "<" + tag.xml.name + ">"+$scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange())+"</" + tag.xml.name + ">";
         }
 
+
+        //console.log($scope.aceEditor.getCursorPosition());
+        var lineNumber = $scope.aceEditor.getCursorPosition().row,
+            column = $scope.aceEditor.getCursorPosition().column+tag.xml.name.length+defaultAddChar;
+        //console.log(lineNumber+"<>"+column);
+
         $scope.aceEditor.insert(tagInsert);
+        $scope.aceEditor.getSelection().moveCursorTo(lineNumber, column);
         $scope.aceEditor.focus();
     };
 
@@ -47,10 +57,14 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
      */
     $scope.addAttribute = function(attributeName) {
         var attribute = config.tei[attributeName],
-            attrInsert = "";
+            defaultAddChar = 8;
 
-        attrInsert = "<hi " + attribute.xml.name + "=\"" + attribute.xml.value + "\">" + $scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()) + "</hi>";
+        var attrInsert = "<hi " + attribute.xml.name + "=\"" + attribute.xml.value + "\">" + $scope.aceSession.getTextRange($scope.aceEditor.getSelectionRange()) + "</hi>";
+
+        var lineNumber = $scope.aceEditor.getCursorPosition().row,
+            column = $scope.aceEditor.getCursorPosition().column+attribute.xml.name.length+attribute.xml.value.length+defaultAddChar;
         $scope.aceEditor.insert(attrInsert);
+        $scope.aceEditor.getSelection().moveCursorTo(lineNumber, column);
         $scope.aceEditor.focus();
     };
 
@@ -155,4 +169,8 @@ app.controller("XMLtoHTMLaceCtrl", function ($scope, $http, $sce) {
             $scope.aceEditor.redo();
         }
     };
+
+    $scope.help = function() {
+        $scope.interactionFile = "./XMLtoHTMLace/tpl/help-home.html"
+    }
 });
