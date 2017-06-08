@@ -13,9 +13,9 @@ app.config(function($routeProvider) {
             templateUrl : "TextAngularFork/TextAngularFork.html",
             controller : "TextAngularForkCtrl"
         })
-        .when("/XMLtoHTMLcode", {
-            templateUrl : "XMLtoHTMLcode/XMLtoHTMLcode.html",
-            controller : "XMLtoHTMLcodeCtrl"
+        .when("/XMLtoHTMLace", {
+            templateUrl : "XMLtoHTMLace/XMLtoHTMLace.html",
+            controller : "XMLtoHTMLaceCtrl"
         })
         .otherwise({
             templateUrl : "XMLtoHTML/XMLtoHTML.html",

@@ -1,6 +1,6 @@
 buttonsGroups:
     structure: "dropdown"
-    replace: "group"
+    choice: "group"
     semantic: "group"
     text: "group"
 tei:
@@ -29,8 +29,6 @@ tei:
             name: "p"
             unique: "false"
             value: "paragraphe"
-            attributes:
-                style: "color: red;"
         xml:
             name: "p"
             unique: "false"
@@ -50,17 +48,22 @@ tei:
             unique: "false"
             value: ""
             sub:
-                li:
-                    name: "li"
-                    unique: "false"
-                    value: "liste"
+                item: "tag"
         xml:
             name: "list"
             unique: "false"
             sub:
-                item:
-                    name: "item"
-                    unique: "false"
+                item: "tag"
+    item:
+        type: "tag"
+        caret:
+            position: "prepend"
+        html:
+            name: "li"
+            unique: "false"
+        xml:
+            name: "item"
+            unique: "false"
     letterhead:
         type: "tag"
         btn :
@@ -136,15 +139,17 @@ tei:
         xml:
             name: "postscript"
             unique: "false"
-    replace:
-        type: "replace"
+    choice:
+        type: "choice"
+        modal:
+            id: "choice-modal"
         btn :
-            id: "replace"
+            id: "choice"
             label: "Remplacement"
             title: "Remplacer du texte"
             icon: "fa fa-refresh"
             btn_class: ""
-            btn_group: "replace"
+            btn_group: "choice"
         caret:
             position: "after"
         html:

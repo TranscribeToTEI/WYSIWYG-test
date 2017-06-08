@@ -36,11 +36,13 @@
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-sm btn-default capitalize" data-ng-click="addTag('test')">test</a>
+                <a class="btn btn-sm btn-default capitalize" data-ng-click="test()">test</a>
             </div>
         </div>
         <div ui-ace="{
-              mode: 'xml'
+              mode: 'xml',
+              onLoad: aceLoaded,
+              onChange: aceChanged
             }" id="inputArea" data-ng-model="inputArea"></div>
         <br />
         <label for="xmlTextarea">Rendu XML de la transcription</label>
